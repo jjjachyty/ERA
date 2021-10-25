@@ -316,6 +316,7 @@ export default {
 #app {
   color: #fff;
   font-family: "Futura-Book-2";
+  background: rgba(19, 29, 23, 1);
 }
 #app div {
   font-family: "Gen2";

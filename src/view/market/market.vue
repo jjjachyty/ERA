@@ -265,7 +265,7 @@ export default {
   font-size: 12px;
 
   .caintner {
-    padding: 110px 0;
+    padding: 110px 0 130px;
     max-width: 1970px;
     width: 80%;
     margin: 0 auto;

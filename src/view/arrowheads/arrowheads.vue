@@ -1,15 +1,16 @@
 <template>
   <div :class="['pcmain',this.screenWidth >= 600 ?'':'main']">
-    <div class="caintner">
-      <div class="topimg" v-if="this.screenWidth >= 600" >
+    <div class="caintners">
+      <!-- <div class="topimg" v-if="this.screenWidth >= 600" >
         <img src="@/assets/img/bannerarrbig.png" alt class="banner"   />
         <img src="@/assets/img/logo.png" alt class="logo" />
-      </div>
+      </div> -->
       
       <el-row>
         <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
           <div class="left">
-            <div :class="['pool', this.screenWidth >= 600?'':'toppoll']">
+            <!-- :class="['pool', this.screenWidth >= 600?'':'toppoll']" -->
+            <div class="pool">
               <div class="title">OPEN ERA 礦池</div>
               <div class="count">23,456,231</div>
               <p class="yu">剩余奖池（DXCT)≈$0</p>
@@ -218,10 +219,10 @@ export default {
     display: block;
     margin-bottom: 30px;
   }
-  .caintner {
-    padding: 140px 0;
+  .caintners {
+    // padding: 140px 0;
     max-width: 1970px;
-    width: 90%;
+ 
     margin: 0 auto 0;
     .topimg{
       position: relative;
@@ -355,11 +356,11 @@ export default {
   }
 }
 .main {
-  padding: 140px 0;
-  .caintner {
+  // padding: 140px 0;
+  .caintners {
     width: 95%;
   
-    padding: 50px 0;
+    // padding: 50px 0;
     .left .rule .poolRight span,
     .left .rule .poolLeft span {
       font-size: 18px;

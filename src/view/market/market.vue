@@ -5,11 +5,26 @@
         <div class="headerMarket">
           <el-col :xs="24" :sm="16" :md="16" :lg="16" :xl="16">
             <div class="nav">
-              <img v-if="activeNav==1" src="@/assets/img/paimai.png" alt  @click="activeNavmeth(1)" />
-              <img v-if="activeNav==2" src="@/assets/img/paimaino.png" alt @click="activeNavmeth(1)" />
+              <img v-if="activeNav==1" src="@/assets/img/paimai.png" alt @click="activeNavmeth(1)" />
+              <img
+                v-if="activeNav==2"
+                src="@/assets/img/paimaino.png"
+                alt
+                @click="activeNavmeth(1)"
+              />
 
-              <img v-if="activeNav==2" src="@/assets/img/shichang.png" alt @click="activeNavmeth(2)" />
-              <img v-if="activeNav==1" src="@/assets/img/shichangno.png" alt @click="activeNavmeth(2)" />
+              <img
+                v-if="activeNav==2"
+                src="@/assets/img/shichang.png"
+                alt
+                @click="activeNavmeth(2)"
+              />
+              <img
+                v-if="activeNav==1"
+                src="@/assets/img/shichangno.png"
+                alt
+                @click="activeNavmeth(2)"
+              />
             </div>
           </el-col>
           <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
@@ -31,12 +46,15 @@
                   <i class="el-icon-arrow-down el-icon--right"></i>
                 </span>
                 <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item>拍卖中</el-dropdown-item>
-                  <el-dropdown-item>已结束</el-dropdown-item>
+                  <el-dropdown-item>最新出价</el-dropdown-item>
+                  <el-dropdown-item>最新发布</el-dropdown-item>
+                  <el-dropdown-item>时间结束</el-dropdown-item>
+                  <el-dropdown-item>最低价格</el-dropdown-item>
+                  <el-dropdown-item>最高价格</el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
               <div class="history" @click="history">
-                <img src="@/assets/img/pmls.png" alt  />
+                <img src="@/assets/img/pmls.png" alt />
               </div>
             </div>
             <div class="navRight wids" v-if="activeNav==2">
@@ -48,11 +66,12 @@
                 </span>
                 <el-dropdown-menu slot="dropdown">
                   <el-dropdown-item>最新銷售</el-dropdown-item>
-                  <el-dropdown-item>最新銷售</el-dropdown-item>
+                  <el-dropdown-item>最低价格</el-dropdown-item>
+                  <el-dropdown-item>最高价格</el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
-               
-              <div class="history" @click="history">
+
+              <div class="history" @click="historyscls">
                 <img src="@/assets/img/scls.png" alt />
               </div>
             </div>
@@ -61,7 +80,7 @@
       </el-row>
       <div class="swiper" v-if="this.screenWidth >= 600">
         <div class>
-          <swiper :options="swiperOption" @click-slide="clkItem">
+          <swiper :options="swiperOption" @click-slide="clkItem" class="swiper-no-swiping">
             <swiper-slide class="swiper-slide" v-for="(item,index) in carouselArr" :key="index">
               <div class="item">
                 <div class="imgItem">
@@ -77,7 +96,7 @@
                       333,234,567,676
                     </span>
                   </div>
-                  <div class="info">
+                  <div class="info" v-if="activeNav==1">
                     <span>剩餘時間</span>
                     <span class="weight">12:12:12</span>
                   </div>
@@ -114,7 +133,7 @@
                     333,234,567,676
                   </span>
                 </div>
-                <div class="info">
+                <div class="info" v-if="activeNav==1">
                   <span>剩餘時間</span>
                   <span class="weight">12:12:12</span>
                 </div>
@@ -135,9 +154,10 @@
                     <img src="@/assets/img/iconMoney.png" alt class="iconMoney" />
                     333,234,567,676
                   </span>
-
-                  <span>剩餘時間</span>
-                  <span class="weight">12:12:12</span>
+                  <div class="info" v-if="activeNav==1">
+                    <span>剩餘時間</span>
+                    <span class="weight">12:12:12</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -145,14 +165,18 @@
         </el-row>
       </div>
     </div>
+    <marketHpList @getConfirmInfoList="getConfirmInfoList" @getCancellist="showList = false" :showList.sync="showList"></marketHpList>
+
     <marketPMList @getConfirmInfo="getConfirmInfo" @getCancel="show = false" :show.sync="show"></marketPMList>
   </div>
 </template>
 <script>
 import marketPMList from "./marketPMList.vue";
+import marketHpList from "./marketHpList.vue";
 export default {
   components: {
-    marketPMList
+    marketPMList,
+    marketHpList
   },
   data() {
     return {
@@ -160,6 +184,7 @@ export default {
       bannerbjIMg: "@/assets/img/bannerbj600.png",
       activeNav: 1,
       show: false,
+      showList:false,
       carouselArr: ["1", "1", "1", "1", "1", "1"],
       swiperOption: {
         //显示分页
@@ -196,6 +221,9 @@ export default {
         this.bannerbjIMg = require("@/assets/img/bannerbj.png");
       }
     },
+    getConfirmInfoList(){
+
+    },
     getConfirmInfo(v) {
       console.log(v);
     },
@@ -219,11 +247,14 @@ export default {
         });
       }
     },
-    activeNavmeth(v){
-      this.activeNav = v
+    activeNavmeth(v) {
+      this.activeNav = v;
     },
-    history(){
-     this.show = true 
+    history() {
+      this.show = true;
+    },
+    historyscls(){
+      this.showList = true;
     }
   }
 };
@@ -265,9 +296,9 @@ export default {
           color: #fff;
         }
       }
-      .wids{
-            width: 71%;
-    float: right;
+      .wids {
+        width: 71%;
+        float: right;
       }
     }
     .swiper {

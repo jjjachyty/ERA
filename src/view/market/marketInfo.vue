@@ -2,9 +2,9 @@
   <div :class="['pcmain',this.screenWidth >= 600 ?'':'main']">
     <div class="caintner">
       <div class="headerMarket">
-        <div class="staus">NFT 已領取</div>
         <div class="nav">
-         拍賣  > <span class="color">神秘紫晶勛章（ID:002101）</span>
+          拍賣 >
+          <span class="color">神秘紫晶勛章（ID:002101）</span>
         </div>
         <div class="goback" @click="goback">
           <img src="@/assets/img/goback.png" alt />
@@ -32,9 +32,12 @@
                   <p>238,647,324</p>
                 </div>
               </div>
-              <div class="bug">立即出價（價格上漲10%）</div>
+              <div class="link">链接钱包</div>
+              <!-- <div class="bug" @click="submitBuy">立即出價（價格上漲10%）</div> -->
+              <!-- <div class="staus">NFT 已領取</div> -->
+
               <div class="tips">上次出价的返佣 21,780,000 ERA</div>
-              <!-- <div class="btn">链接钱包</div> -->
+
               <div class="btn">
                 <img src="../../assets/img/lsdata.png" alt />
               </div>
@@ -43,11 +46,11 @@
                 <div class="infoBox">
                   <p class="money">
                     <span>擁有者</span>
-                    <span>未定義的</span>
+                    <span class="line">未定義的</span>
                   </p>
                   <p class="money">
                     <span>合約地址</span>
-                    <span>0x534…3cd45</span>
+                    <span class="line">0x534…3cd45</span>
                   </p>
                   <p class="money">
                     <span>令牌ID</span>
@@ -120,21 +123,26 @@
         </ul>
       </div>
     </div>
+    <buymarket @getConfirmear="getConfirmear" @getCancel="showBuy = false" :showBuy.sync="showBuy"></buymarket>
+
     <marketPMList @getConfirmInfo="getConfirmInfo" @getCancel="show = false" :show.sync="show"></marketPMList>
   </div>
 </template>
 <script>
 import marketPMList from "./marketPMList.vue";
+import buymarket from "./buymarket.vue";
 export default {
   components: {
-    marketPMList
+    marketPMList,
+    buymarket
   },
   data() {
     return {
       screenWidth: this.GLOBAL.clientWidth,
       bannerbjIMg: "@/assets/img/bannerbj600.png",
       activeNav: 1,
-      show: false
+      show: false,
+      showBuy: false
     };
   },
   mounted() {
@@ -152,9 +160,12 @@ export default {
     getConfirmInfo(v) {
       console.log(v);
     },
-     goback(){
-     this.$router.go(-1);  
-  }
+    submitBuy() {
+      this.showBuy = true;
+    },
+    goback() {
+      this.$router.go(-1);
+    }
   }
 };
 </script>
@@ -191,9 +202,9 @@ img {
       }
       .nav {
         margin-top: 10px;
-         .color{
-           color: rgba(112, 244, 165, 1);
-         }
+        .color {
+          color: rgba(112, 244, 165, 1);
+        }
       }
       .goback {
         img {
@@ -258,6 +269,22 @@ img {
           color: #333;
           text-align: center;
         }
+        .staus {
+          background: url(../../assets/img/maketStatusbj.png) no-repeat center;
+          background-size: contain;
+          line-height: 43px;
+          height: 43px;
+          color: #fff;
+          text-align: center;
+        }
+        .link {
+          background: url(../../assets/img/maketStatusbj.png) no-repeat center;
+          background-size: contain;
+          line-height: 43px;
+          height: 43px;
+          color: #fff;
+          text-align: center;
+        }
         .tips {
           margin: 10px;
           text-align: center;
@@ -279,6 +306,9 @@ img {
               line-height: 26px;
               display: flex;
               justify-content: space-between;
+              .line {
+                text-decoration: underline;
+              }
             }
           }
         }
@@ -318,12 +348,12 @@ img {
             div {
               display: flex;
               justify-content: space-between;
-              align-items: center; 
+              align-items: center;
               padding: 10px 0;
-              span{
-                  display: block;
-                  word-break: break-all;
-                  white-space: normal;
+              span {
+                display: block;
+                word-break: break-all;
+                white-space: normal;
               }
             }
           }

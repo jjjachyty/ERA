@@ -101,6 +101,7 @@ export default {
     padding: 0 16px;
     img {
       margin: 0;
+      width: 40px
     }
   }
   .item.active {

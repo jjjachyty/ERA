@@ -3,7 +3,7 @@
     <el-dialog :show-close="false" :visible.sync="centerDialogVisible" :width="dialogWidth" center>
       <div :class="['pcmain',this.screenWidth >= 600 ?'':'main']">
         <div class="headerTop">
-          拍賣歷史
+          市場歷史
           <img src="../../assets/img/close.png" alt class="close" @click="closemodule" />
         </div>
 
@@ -41,9 +41,8 @@
         <div class="list" v-if="this.screenWidth >= 600">
           <div class="tbHeader">
             <span class="windthFixd">NFT</span>
-            <span>起價(ERA)</span>
-            <span>最新出價(ERA)</span>
-            <span>利潤（ERA）</span>
+            <span>價格(ERA)</span>
+            <span>時間</span>
             <span>狀態</span>
             <span class="windthFixd3">操作</span>
           </div>
@@ -60,8 +59,7 @@
                   <span>（#002102）</span>
                 </p>
               </div>
-              <div class="width2 color">200</div>
-              <div class="width2 color">200</div>
+              <div class="width2 color">200</div> 
               <div class="width2 color">200</div>
               <div class="width2">交易中</div>
               <div class="width3">
@@ -107,14 +105,14 @@
 <script>
 export default {
   props: {
-    show: {
+    showList: {
       type: Boolean,
       default: false
     }
   },
   data() {
     return {
-      centerDialogVisible: this.show,
+      centerDialogVisible: this.showList,
       dialogWidth: "0",
       screenWidth: this.GLOBAL.clientWidth,
       bjIMg: require("@/assets/img/shuxbj1.png"),
@@ -124,7 +122,7 @@ export default {
     };
   },
   watch: {
-    show(val) {
+    showList(val) {
       this.centerDialogVisible = val;
     }
   },
@@ -144,11 +142,11 @@ export default {
     },
     // 点击弹框下的关闭
     closemodule(v) {
-      this.$emit("getCancel", v);
+      this.$emit("getCancellist", v);
     },
     check(inde) {
       //查看详情
-      this.$emit("getConfirmInfo", inde);
+      this.$emit("getConfirmInfoList", inde);
     },
     navtable(v){
       this.activeNavtable = v

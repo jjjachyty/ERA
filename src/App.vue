@@ -63,7 +63,7 @@
                 alt
                 class="package"
                 v-if="mouse"
-                @click="linkPackageShow"
+                @click="linkShow"
               />
               <img
                 src="./assets/img/packageenter.png"
@@ -71,7 +71,7 @@
                 alt
                 class="package"
                 v-if="!mouse"
-                @click="linkPackageShow"
+                @click="linkShow"
               />
             </div>
             <div @mouseenter="enter" v-if="mypackage">
@@ -109,7 +109,14 @@
     <el-drawer :visible.sync="drawer" :size="size" :with-header="false">
       <div class="navimgList">
         <img src="./assets/img/en.png" alt class="luange" />
-        <img src="./assets/img/package.png" alt class="package" @click="linkPackageShow" />
+        <img src="./assets/img/package.png" v-if="!mypackage" alt class="package" @click="linkShow" />
+        <img
+          src="./assets/img/mypackage.png"
+          alt
+          class="package"
+          v-if="mypackage"
+          @click="linkPackageShow"
+        />
       </div>
       <div class="navList">
         <!-- <el-menu
@@ -172,8 +179,8 @@ export default {
         { name: "Home", activeIndex: "/home", index: "1" },
         { name: "NFT", activeIndex: "/blindbox", index: "2" },
         { name: "Market", activeIndex: "/market", index: "3" },
-        { name: "Pledge Mining", activeIndex: "/arrowheads", index: "4" },
-        { name: "FARMS", activeIndex: "/FARMS", index: "4" }
+        // { name: "Pledge Mining", activeIndex: "/arrowheads", index: "4" },
+        { name: "Farms", activeIndex: "/FARMS", index: "4" }
         // { name: "Contract" },
         // { name: "Backstage" }
       ],
@@ -281,10 +288,15 @@ export default {
     getConfirmCheck(v) {
       console.log(v);
     },
+    //我的钱包
     linkPackageShow() {
       // this.show = true
-      console.log("222");
       this.showNFT = true;
+    },
+    //链接钱包
+    linkShow() {
+      // this.show = true
+      this.show = true;
     },
     //NFT方法
     getConfirmNFT(v) {},
@@ -352,7 +364,7 @@ export default {
   height: 4px;
   bottom: 0;
   left: 50%;
-  transform: translate(-50%,0);
+  transform: translate(-50%, 0);
 }
 .el-menu-item:hover {
   background: 0 !important;

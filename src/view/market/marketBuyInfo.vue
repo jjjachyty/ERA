@@ -1,7 +1,7 @@
 <template>
   <div :class="['pcmain',this.screenWidth >= 600 ?'':'main']">
     <div class="caintner">
-      <div class="headerMarket"> 
+      <div class="headerMarket">
         <div class="nav">
           <img v-if="activeNav==1" src="@/assets/img/paimai.png" alt />
         </div>
@@ -32,8 +32,11 @@
                 </div>
               </div>
               <div class="bug" @click="submitBuy">立即出價（價格上漲10%）</div>
+              <!-- <div class="link">链接钱包</div> -->
+              <!-- <div class="staus">NFT 已領取</div> -->
+
               <div class="tips">上次出价的返佣 21,780,000 ERA</div>
-              <!-- <div class="btn">链接钱包</div> -->
+
               <div class="btn">
                 <img src="../../assets/img/lsdata.png" alt />
               </div>
@@ -42,11 +45,11 @@
                 <div class="infoBox">
                   <p class="money">
                     <span>擁有者</span>
-                    <span>未定義的</span>
+                    <span class="line">未定義的</span>
                   </p>
                   <p class="money">
                     <span>合約地址</span>
-                    <span>0x534…3cd45</span>
+                    <span class="line">0x534…3cd45</span>
                   </p>
                   <p class="money">
                     <span>令牌ID</span>
@@ -66,7 +69,6 @@
               </div>
             </div>
           </el-col>
-         
         </el-row>
       </div>
       <div class="rule">
@@ -121,13 +123,12 @@ export default {
     getConfirmlittle(v) {
       console.log(v);
     },
-    submitBuy(){
-this.showBuy = true
+    submitBuy() {
+      this.showBuy = true;
     },
-  goback(){
-    this.$router.go(-1)
-  }
-
+    goback() {
+      this.$router.go(-1);
+    }
   }
 };
 </script>
@@ -148,7 +149,7 @@ img {
       justify-content: space-between;
       align-items: center;
       position: relative;
-     
+
       .nav {
         margin-top: 10px;
         img {
@@ -194,7 +195,7 @@ img {
         }
       }
       .count {
-        padding-left:20px;
+        padding-left: 20px;
         margin-bottom: 40px;
         .name {
           font-size: 22px;
@@ -220,6 +221,22 @@ img {
           color: #333;
           text-align: center;
         }
+        .staus {
+          background: url(../../assets/img/maketStatusbj.png) no-repeat center;
+          background-size: contain;
+          line-height: 43px;
+          height: 43px;
+          color: #fff;
+          text-align: center;
+        }
+        .link {
+          background: url(../../assets/img/maketStatusbj.png) no-repeat center;
+          background-size: contain;
+          line-height: 43px;
+          height: 43px;
+          color: #fff;
+          text-align: center;
+        }
         .tips {
           margin: 10px;
           text-align: center;
@@ -241,28 +258,28 @@ img {
               line-height: 26px;
               display: flex;
               justify-content: space-between;
+              .line{
+                text-decoration: underline;
+              }
             }
           }
         }
       }
-
-   
     }
     .rule {
       background: #26352c;
       border-radius: 16px;
-     padding: 10px 0 30px;
+      padding: 10px 0 30px;
       width: 70%;
       margin: 0 auto;
       h6 {
         margin: 20px 0;
-         padding:0  30px;
+        padding: 0 30px;
       }
-      ul{
-        padding:0  30px;
+      ul {
+        padding: 0 30px;
       }
       li {
-         
         line-height: 24px;
       }
     }
@@ -273,13 +290,13 @@ img {
     width: 90%;
     .info {
       width: 100%;
-       .count{
-         padding-left: 0;
-       }
+      .count {
+        padding-left: 0;
+      }
     }
-  .rule{
-    width: 100%;
+    .rule {
+      width: 100%;
+    }
   }
-  }
-} 
+}
 </style>

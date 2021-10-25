@@ -216,7 +216,6 @@ export default {
     goNFT(){
       this.$router.push({
           path: "/blindbox",
-           
         });
     }
   }

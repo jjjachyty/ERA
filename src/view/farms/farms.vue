@@ -20,94 +20,103 @@
         <img src="@/assets/img/LPbtn.png" alt  v-if="activeItem==2" @click="active(2)"/>
         <img src="@/assets/img/LPbtnno.png" alt  v-if="activeItem==1" @click="active(2)"/>
       </div>
-      <el-row>
-        <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
-          <div class="boxfarms left">
-            <div class="boxfarmstop">
-              <div class="count">253,571</div>
-              <p class="intra">Remaining tokens in pool（ANS） ≈ $ 736,259</p>
+      <div v-if="activeItem==1">
+        <arrowheads></arrowheads>
+      </div>
+      <div v-if="activeItem==2">
+        <el-row>
+          <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
+            <div class="boxfarms left">
+              <div class="boxfarmstop">
+                <div class="count">253,571</div>
+                <p class="intra">Remaining tokens in pool（ANS） ≈ $ 736,259</p>
+              </div>
+              <div class="boxfarmsmain">
+                <div class="peapol">
+                  <div class="headeImg">
+                    <img src="@/assets/img/navRight1.png" alt />
+                  </div>
+                  <div class="name">ANS/Pancake</div>
+                </div>
+                <div class="info">
+                  <div class="item">
+                    <p>233.12%</p>
+                    <span>APR</span>
+                  </div>
+                  <div class="item">
+                    <p>ANS</p>
+                    <span>Earm</span>
+                  </div>
+                </div>
+                <div class="change margin0">
+                  <p>Harvest (ANS) ≈ $0</p>
+                  <div class="mars">
+                    <span>0.00</span>
+                    <img src="@/assets/img/harvest.png" alt />
+                  </div>
+                </div>
+                <div class="change">
+                  <p>Staked (ANS/Pancake)</p>
+                  <div class="mars">
+                    <span>0.00</span>
+                    <img src="@/assets/img/stake.png" alt />
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="boxfarmsmain">
-              <div class="peapol">
-                <div class="headeImg">
-                  <img src="@/assets/img/navRight1.png" alt />
-                </div>
-                <div class="name">ANS/Pancake</div>
-              </div>
-              <div class="info">
-                <div class="item">
-                  <p>233.12%</p>
-                  <span>APR</span>
-                </div>
-                <div class="item">
-                  <p>ANS</p>
-                  <span>Earm</span>
-                </div>
-              </div>
-              <div class="change margin0">
-                <p>Harvest (ANS) ≈ $0</p>
-                <div class="mars">
-                  <span>0.00</span>
-                  <img src="@/assets/img/harvest.png" alt />
-                </div>
-              </div>
-              <div class="change">
-                <p>Staked (ANS/Pancake)</p>
-                <div class="mars">
-                  <span>0.00</span>
-                  <img src="@/assets/img/stake.png" alt />
-                </div>
-              </div>
-            </div>
-          </div>
-        </el-col>
+          </el-col>
 
-        <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
-          <div class="boxfarms right">
-              <img src="@/assets/img/tip.png" class="tip" alt="">
-            <div class="boxfarmstop">
-              <div class="count">253,571</div>
-              <p class="intra">Remaining tokens in pool（ANS） ≈ $ 736,259</p>
+          <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
+            <div class="boxfarms right">
+                <img src="@/assets/img/tip.png" class="tip" alt="">
+              <div class="boxfarmstop">
+                <div class="count">253,571</div>
+                <p class="intra">Remaining tokens in pool（ANS） ≈ $ 736,259</p>
+              </div>
+              <div class="boxfarmsmain">
+                <div class="peapol">
+                  <div class="headeImg">
+                    <img v-for="(item , index) in listImg" :key="index" :style="`left:${index*30-index*40}px`" src="@/assets/img/navRight1.png" alt />
+                  </div>
+                  <div class="name">ANS/Pancake</div>
+                </div>
+                <div class="info">
+                  <div class="item">
+                    <p>233.12%</p>
+                    <span>APR</span>
+                  </div>
+                  <div class="item">
+                    <p>ANS</p>
+                    <span>Earm</span>
+                  </div>
+                </div>
+                <div class="change margin0">
+                  <p>Harvest (ANS) ≈ $0</p>
+                  <div class="mars">
+                    <span>0.00</span>
+                    
+                  </div>
+                </div>
+                <div class="change">
+                  <p>Staked (ANS/Pancake)</p>
+                  <div class="mars">
+                    <span>0.00</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="boxfarmsmain">
-              <div class="peapol">
-                <div class="headeImg">
-                  <img v-for="(item , index) in listImg" :key="index" :style="`left:${index*30-index*40}px`" src="@/assets/img/navRight1.png" alt />
-                </div>
-                <div class="name">ANS/Pancake</div>
-              </div>
-              <div class="info">
-                <div class="item">
-                  <p>233.12%</p>
-                  <span>APR</span>
-                </div>
-                <div class="item">
-                  <p>ANS</p>
-                  <span>Earm</span>
-                </div>
-              </div>
-              <div class="change margin0">
-                <p>Harvest (ANS) ≈ $0</p>
-                <div class="mars">
-                  <span>0.00</span>
-                   
-                </div>
-              </div>
-              <div class="change">
-                <p>Staked (ANS/Pancake)</p>
-                <div class="mars">
-                  <span>0.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </el-col>
-      </el-row>
+          </el-col>
+        </el-row>
+       </div>
     </div>
   </div>
 </template>
 <script>
+import arrowheads from "../arrowheads/arrowheads";
 export default {
+   components: {
+    arrowheads, 
+  },
   data() {
     return {
       screenWidth: this.GLOBAL.clientWidth,

@@ -141,13 +141,18 @@ export default {
   },
   methods: {
     setDialogWidth() {
-      var val = document.body.clientWidth;
-      const def = 600; // 默认宽度
-      if (val < def) {
+      // var val = document.body.clientWidth;
+      // const def = 600; // 默认宽度
+      // if (val < def) {
+      //   this.dialogWidth = "80%";
+      // } else {
+      //   this.dialogWidth = def + "px";
+      // }
+       if (this.screenWidth < 600) {
         this.dialogWidth = "80%";
-      } else {
-        this.dialogWidth = def + "px";
-      }
+         } else {
+        this.dialogWidth = 600 + "px";
+         }
     },
     goback() {
       this.avtiveText = "";

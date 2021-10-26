@@ -166,6 +166,7 @@
 <script>
 import NFTmedule from "./components/NFTmedule.vue";
 import linkPackage from "./components/linkPackage.vue"; // 第一步 先使用import导入你要在该组件中使用的子组件
+import {getContract} from "@/assets/js/web3.js"
 export default {
   name: "App",
   components: {
@@ -292,11 +293,16 @@ export default {
     linkPackageShow() {
       // this.show = true
       this.showNFT = true;
+      getContract().then(()=>{
+        alert("钱包连接成功")
+      }).catch(err=>{
+        alert("连接metamask 出错",err)
+      })
     },
     //链接钱包
     linkShow() {
-      // this.show = true
-      this.show = true;
+      this.show = true
+
     },
     //NFT方法
     getConfirmNFT(v) {},

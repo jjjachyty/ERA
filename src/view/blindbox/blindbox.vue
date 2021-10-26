@@ -11,7 +11,7 @@
           </div>
           <div class="meth">
             <div class="button">
-              <img src="../../assets/img/btnn.png" alt />
+              <img src="../../assets/img/btnn.png" alt @click="goMint" />
             </div>
             <div class="count">
               <img src="../../assets/img/mangheicon.png" alt />
@@ -54,6 +54,7 @@
 </template>
 <script>
 import infoBindBox from "./infoBindBox.vue";
+import {mint} from "@/assets/js/web3.js"
 export default {
   components: {
     infoBindBox
@@ -62,6 +63,7 @@ export default {
     return {
       screenWidth: this.GLOBAL.clientWidth,
       show: false,
+      power:[1000,2500,6500,14500,35000,90000],
       list: [
         {
           bjimh: require("@/assets/img/xzBj1.png"),
@@ -109,7 +111,17 @@ export default {
     };
   },
   mounted() {},
-  methods: {}
+  methods: {
+        goMint(){
+      // mint(nftName,level,power,res,author)nftName 可以传空 level 等级 1-5 power[1000,2500,6500,14500,35000,90000] res 随便 author 随便
+      mint("nftName",Math.floor((Math.random() * 10)%5) + 1,this.power[Math.floor((Math.random() * 10)%6) + 1],"res","0xa38433265062f1f73c0a90f2fea408f2efd1a569").then((hash) =>{
+        alert("铸造成功，交易Hash",hash)
+      }).catch((err)=>{
+        console.log(".......",err)
+        alert("铸造失败"+err)
+      })
+    }
+  }
 };
 </script>
 <style scoped lang="less">

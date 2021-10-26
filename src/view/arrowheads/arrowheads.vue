@@ -4,16 +4,16 @@
       <!-- <div class="topimg" v-if="this.screenWidth >= 600" >
         <img src="@/assets/img/bannerarrbig.png" alt class="banner"   />
         <img src="@/assets/img/logo.png" alt class="logo" />
-      </div> -->
-      
+      </div>-->
+
       <el-row>
         <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
           <div class="left">
             <!-- :class="['pool', this.screenWidth >= 600?'':'toppoll']" -->
             <div class="pool">
-              <div class="title">OPEN ERA 礦池</div>
+              <div class="title">Angel valley Mining Pool</div>
               <div class="count">23,456,231</div>
-              <p class="yu">剩余奖池（DXCT)≈$0</p>
+              <p class="yu">Remaining prize pool(DXCT) ≈ $6,170,505</p>
               <img src="@/assets/img/logo.png" v-if="this.screenWidth < 600" class="logos" alt />
             </div>
 
@@ -21,15 +21,15 @@
               <div class="poolLeft">
                 <div>
                   <span>13,253,571</span>
-                  <p>总算力</p>
+                  <p>Total Mining Power</p>
                 </div>
                 <div>
                   <span>13,253,571</span>
-                  <p>总质押金额</p>
+                  <p>Total Staked Amount</p>
                 </div>
                 <div>
                   <span>13,253,571</span>
-                  <p>总质押代币（DXCT)≈$0</p>
+                  <p>Total Staked Tokens(DXCT) ≈ $9,201,761</p>
                 </div>
                 <div>
                   <span>13,253,571</span>
@@ -39,19 +39,18 @@
               <div class="poolRight">
                 <div>
                   <span>13,253,571</span>
-                  <p>我的挖矿能力</p>
+                  <p>My Mining Power</p>
                 </div>
                 <div>
                   <span>13,253,571</span>
-                  <p>我的抵押金额</p>
+                  <p>My Staked Amount</p>
                 </div>
                 <div>
                   <span>13,253,571</span>
-                  <p>我的抵押代币（DXCT)≈$0</p>
+                  <p>My Staked Tokens(DXCT)≈ $0</p>
                 </div>
                 <div class>
-                  <!-- <img src="@/assets/img/arrowbtn1ing.png" alt /> -->
-                  <img src="@/assets/img/harvest.png" alt="" >
+                  <img src="@/assets/img/harvest.png" alt />
                 </div>
               </div>
             </div>
@@ -71,19 +70,17 @@
                 v-for="(item,key) in list"
               >
                 <div class="contentbox">
-                  <div :class="['boxtop' ,qxslshow?'boxtops2':'']">
-                    <div class="lefts">位置算力1</div>
-                    <div class="rights" v-if="qxslshow" @click="qxslz">取消算力</div>
+                  <div :class="['boxtop' ]">
+                    <div class="lefts">Position HashRate：{{key+1}}</div>
                   </div>
 
                   <img :src="item.icon" alt class="yuansu" />
-                  <span>解锁</span>
-                  <!-- <span class="color">已解锁（算力位已满）+6000算力</span> -->
+                  <!-- <span>Confirming…</span> -->
+                  <span class="color">Has unlocked +6000 power</span>
                   <div class="info">
-                    <img src="@/assets/img/arrowbtn1.png" alt v-if="arrowbtn1"/>
-                    <img src="@/assets/img/arrowbtn1no.png" alt v-if="!arrowbtn1"/> 
-                    <img src="@/assets/img/arrowbtn2.png" alt @click="upslz" v-if="arrowbtn2"/>
-                    <img src="@/assets/img/arrowbtn2no.png" alt @click="upslz" v-if="!arrowbtn2"/>
+                    <img src="@/assets/img/arrowbtn1.png" alt v-if="arrowbtn1" />
+                    <img src="@/assets/img/arrowbtn1no.png" alt v-if="!arrowbtn1" />
+                    <img src="@/assets/img/arrowbtn2.png" alt @click="qxslz" />
                   </div>
                 </div>
               </el-col>
@@ -97,20 +94,20 @@
       @getCancel="showarrowItem = false"
       :showarrowItem.sync="showarrowItem"
     ></arrowItem>
-    <arrowUpItem
+    <!-- <arrowUpItem
       @getConfirmUp="getConfirmUp"
       @getCancel="showarrowUp = false"
       :showarrowUp.sync="showarrowUp"
-    ></arrowUpItem>
+    ></arrowUpItem> -->
   </div>
 </template>
 <script>
 import arrowItem from "./arrowItem.vue";
-import arrowUpItem from "./arrowUpItem.vue";
+// import arrowUpItem from "./arrowUpItem.vue";
 export default {
   components: {
     arrowItem,
-    arrowUpItem
+    // arrowUpItem
   },
   data() {
     return {
@@ -118,9 +115,9 @@ export default {
       bannerbjIMg: "@/assets/img/bannerbj600.png",
       showarrowItem: false, //arrowItem
       showarrowUp: false,
-      arrowbtn1:false,
-      arrowbtn2:true,
-      qxslshow:true,//取消算力的显示
+      arrowbtn1: false,
+      arrowbtn2: true,
+      qxslshow: true, //取消算力的显示
       list: [
         {
           bjimh: require("@/assets/img/xzBj1.png"),
@@ -222,15 +219,15 @@ export default {
   .caintners {
     // padding: 140px 0;
     max-width: 1970px;
- 
+
     margin: 0 auto 0;
-    .topimg{
+    .topimg {
       position: relative;
-      .logo{
+      .logo {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
       }
     }
 
@@ -317,7 +314,7 @@ export default {
 
         .boxtop {
           display: flex;
-          justify-content: center; 
+          justify-content: center;
           padding: 0 10px;
           margin-bottom: 5px;
           .lefts {
@@ -337,12 +334,12 @@ export default {
             border-radius: 21px;
           }
         }
-        
-         .boxtops2 {
+
+        .boxtops2 {
           display: flex;
           justify-content: space-between;
         }
-        
+
         span {
           margin: 0 auto;
           text-align: center;
@@ -359,21 +356,20 @@ export default {
   // padding: 140px 0;
   .caintners {
     width: 95%;
-  
+
     // padding: 50px 0;
     .left .rule .poolRight span,
     .left .rule .poolLeft span {
       font-size: 18px;
-      
     }
     .left .toppoll {
       position: fixed;
       width: 100%;
       top: 76px;
       z-index: 99;
-     
+
       background: url("../../assets/img/bannerarrbj.png") no-repeat center;
-       background-size:cover ;
+      background-size: cover;
       .title {
         font-size: 12px;
       }

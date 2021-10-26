@@ -19,10 +19,10 @@
           </el-col>
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
             <div class="count">
-              <div class="name">神秘紫晶勛章 (ID:002101)</div>
+              <div class="name">NFT name (ID:002101)</div>
               <div class="box">
                 <div class="item">
-                  <span>拍賣倒計時</span>
+                  <span>Auction countdown</span>
                   <p class="color">14 : 32 : 45</p>
                   <!-- <P>已成交</P> -->
                 </div>
@@ -31,11 +31,12 @@
                   <p>238,647,324</p>
                 </div>
               </div>
-              <div class="bug" @click="submitBuy">立即出價（價格上漲10%）</div>
-              <!-- <div class="link">链接钱包</div> -->
-              <!-- <div class="staus">NFT 已領取</div> -->
+              <div class="link">NFT has been claimed</div>
+              <!-- <div class="bug" @click="submitBuy">Bid now (price increase 10%)</div>
+              <div class="bug" >NFT Not collected</div>
+              <div class="staus">Connect wallet</div>-->
 
-              <div class="tips">上次出价的返佣 21,780,000 ERA</div>
+              <div class="tips">ebate from last bid 21,780,000 ERA</div>
 
               <div class="btn">
                 <img src="../../assets/img/lsdata.png" alt />
@@ -44,25 +45,25 @@
               <div class="dataInfo">
                 <div class="infoBox">
                   <p class="money">
-                    <span>擁有者</span>
+                    <span>Owner</span>
                     <span class="line">未定義的</span>
                   </p>
                   <p class="money">
-                    <span>合約地址</span>
+                    <span>Contract address</span>
                     <span class="line">0x534…3cd45</span>
                   </p>
                   <p class="money">
-                    <span>令牌ID</span>
+                    <span>Token ID</span>
                     <span>11</span>
                   </p>
                 </div>
                 <div class="infoBox">
                   <p class="money">
-                    <span>資產協議</span>
+                    <span>Asset Protocol</span>
                     <span>ERC721</span>
                   </p>
                   <p class="money">
-                    <span>資產公鏈</span>
+                    <span>Asset public chain</span>
                     <span>BSC</span>
                   </p>
                 </div>
@@ -164,7 +165,7 @@ img {
       }
     }
     .info {
-      width: 70%;
+      width: 78%;
       margin: 0 auto;
       padding: 30px 0;
 
@@ -222,7 +223,7 @@ img {
           text-align: center;
         }
         .staus {
-          background: url(../../assets/img/maketStatusbj.png) no-repeat center;
+          background: url(../../assets/img/markeyStatus.png) no-repeat center;
           background-size: contain;
           line-height: 43px;
           height: 43px;
@@ -258,7 +259,7 @@ img {
               line-height: 26px;
               display: flex;
               justify-content: space-between;
-              .line{
+              .line {
                 text-decoration: underline;
               }
             }
@@ -270,7 +271,7 @@ img {
       background: #26352c;
       border-radius: 16px;
       padding: 10px 0 30px;
-      width: 70%;
+      width: 78%;
       margin: 0 auto;
       h6 {
         margin: 20px 0;

@@ -5,9 +5,9 @@
         <div class="headerTop">
           <div class="goback" @click="goback" v-if="avtiveHeader">
             <i class="el-icon-arrow-left"></i>
-            我的NFT
+            My NFT
           </div>
-          {{avtiveHeader?avtiveText:'我的NFT'}}
+          {{avtiveHeader?avtiveText:'My NFT'}}
           <img
             src="../assets/img/close.png"
             alt
@@ -19,9 +19,9 @@
           <p class="count">NFT數量:0</p>
           <div class="list">
             <div class="tbHeader">
-              <span>名字</span>
-              <span>身份</span>
-              <span>操作</span>
+              <span>name</span>
+              <span>ID</span>
+              <span>Opeartion</span>
             </div>
             <div class="tbody">
               <div class="dataNo">
@@ -36,15 +36,15 @@
                 <div class="width2">200</div>
                 <div :class="['width3',dialogWidth=='80%'?'width3active':'']">
                   <img src="../assets/img/paimai.png" alt @click="check(1)" />
-                  <img src="../assets/img/ya.png" alt @click="check(2)" />
+                  <img src="../assets/img/sell.png" alt @click="check(2)" />
                 </div>
               </div>
             </div>
           </div>
         </div>
         <!-- 質押 -->
-        <div class="yabao" v-if="avtiveHeader==2">
-          <div class="iconMain">
+        <div class="yabao paimai" v-if="avtiveHeader==2">
+          <!-- <div class="iconMain">
             <img src="../assets/img/xunzhaung1.png" alt class="iconxunzhang" />
             <div class="boxname">
               <div class="name">泉水琉璃勛章</div>
@@ -57,6 +57,33 @@
           </div>
           <div class="ntfQR">
             <img src="../assets/img/ntfQR.png" alt />
+          </div>-->
+
+          <div class="iconMain">
+            <img src="../assets/img/xunzhaung1.png" alt class="iconxunzhang" />
+            <div class="boxname">
+              <div class="name">泉水琉璃勛章</div>
+              <span>ID：002102</span>
+            </div>
+          </div>
+          <div class="margin0">
+            <div class="textname">Starting price</div>
+            <div class="exchange">
+              <span class="color">372136129361</span>
+              <span>≈ $ 2812</span>
+            </div>
+          </div>
+
+          <div class="ntfQR">
+            <img src="../assets/img/ntfQRsell.png" alt />
+          </div>
+          <div class="rule">
+            <h6>Note</h6>
+            <ul>
+              <li>1、注意事項說明注意事項說明注意事項說明，注意事項說明注意事項說明注意事項說明注意事項說明，注意事項說明注意事項說明注意事項說明</li>
+
+              <li>1、注意事項說明注意事項說明注意事項說明，注意事項說明注意事項說明注意事項說明注意事項說明，注意事項說明注意事項說明注意事項說明</li>
+            </ul>
           </div>
         </div>
         <!-- 拍卖 -->
@@ -69,14 +96,14 @@
             </div>
           </div>
           <div class="margin0">
-            <div class="textname">起拍價</div>
+            <div class="textname">Starting price</div>
             <div class="exchange">
               <span class="color">372136129361</span>
               <span>≈ $ 2812</span>
             </div>
           </div>
           <div class="margin0">
-            <div class="textname">初始倒計時</div>
+            <div class="textname">Initial countdown</div>
             <div class="slcount">
               <span :class="[ time==1? 'bjtime':'']">12小时</span>
               <span :class="[ time==2? 'bjtime':'']">24小时</span>
@@ -84,15 +111,15 @@
           </div>
           <div class="margin0">
             <div class="textname">
-              出價幅度：
-              <span class="color">固定加價10%</span>
+              Bid range:：
+              <span class="color">10% fixed price increase</span>
             </div>
           </div>
           <div class="ntfQR">
             <img src="../assets/img/ntfQR.png" alt />
           </div>
           <div class="rule">
-            <h6>注</h6>
+            <h6>Note</h6>
             <ul>
               <li>1、注意事項說明注意事項說明注意事項說明，注意事項說明注意事項說明注意事項說明注意事項說明，注意事項說明注意事項說明注意事項說明</li>
 
@@ -115,6 +142,7 @@ export default {
   data() {
     return {
       centerDialogVisible: this.showNFT,
+      screenWidth: this.GLOBAL.clientWidth,
       dialogWidth: "0",
       avtiveHeader: "", //1是押宝 2 是拍卖
       avtiveText: "",
@@ -148,11 +176,11 @@ export default {
       // } else {
       //   this.dialogWidth = def + "px";
       // }
-       if (this.screenWidth < 600) {
+      if (this.screenWidth < 600) {
         this.dialogWidth = "80%";
-         } else {
+      } else {
         this.dialogWidth = 600 + "px";
-         }
+      }
     },
     goback() {
       this.avtiveText = "";
@@ -161,7 +189,7 @@ export default {
     check(item) {
       this.avtiveHeader = item;
       if (item == 1) {
-        this.avtiveText = "拍卖";
+        this.avtiveText = "Auction";
       } else {
         this.avtiveText = "質押";
       }
@@ -302,7 +330,7 @@ export default {
     }
   }
   .textname {
-    text-align: center; 
+    text-align: center;
   }
   .slcount {
     display: flex;
@@ -328,12 +356,12 @@ export default {
 .paimai {
   max-height: 400px;
   overflow: scroll;
-  .iconMain{
+  .iconMain {
     margin: 20px 0;
   }
-  
-  .margin0{
-    margin-bottom:30px ;
+
+  .margin0 {
+    margin-bottom: 30px;
   }
   .slcount {
     justify-content: inherit;

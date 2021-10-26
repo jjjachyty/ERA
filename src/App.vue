@@ -55,9 +55,9 @@
           >{{item.name}}</el-menu-item>
             </el-submenu>-->
           </el-menu>
-          <div class="navimg" v-if="!mypackage">
+          <div class="navimg" >
             <img src="./assets/img/en.png" alt class="luange" />
-            <div @mouseenter="enter">
+            <div @mouseenter="enter" v-if="!mypackage">
               <img
                 src="./assets/img/package.png"
                 alt
@@ -192,7 +192,7 @@ export default {
       show: false, //链接钱包弹窗
       showNFT: false, //NFT
       mouse: true, //鼠标滑过
-      mypackage: false,
+      mypackage: true,
       navImg: [
         {
           img: require(`@/assets/img/navRight1.png`),

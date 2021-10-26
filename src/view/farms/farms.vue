@@ -59,7 +59,7 @@
                   <p>Staked (ANS/Pancake)</p>
                   <div class="mars">
                     <span>0.00</span>
-                    <img src="@/assets/img/stake.png" alt />
+                    <img src="@/assets/img/stake.png" alt @click="goLpstake"/>
                   </div>
                 </div>
               </div>
@@ -109,13 +109,20 @@
         </el-row>
        </div>
     </div>
+
+<farmLpModule   @getConfirmUp="getConfirmUp"
+      @getCancel="showarrowUp = false"
+      :showarrowUp.sync="showarrowUp"></farmLpModule>
+
   </div>
 </template>
 <script>
 import arrowheads from "../arrowheads/arrowheads";
+import farmLpModule from "./farmLpModule";
 export default {
    components: {
     arrowheads, 
+    farmLpModule
   },
   data() {
     return {
@@ -123,6 +130,7 @@ export default {
       bannerbjIMg: "@/assets/img/bannerbj600.png",
       listImg:[1,2,3],
       activeItem:1,
+      showarrowUp:false
     };
   },
   mounted() {
@@ -140,6 +148,12 @@ export default {
     active(v){
         console.log(v)
         this.activeItem = v
+    },
+    getConfirmUp(){
+      
+    },
+    goLpstake(){
+      this.showarrowUp=true
     }
   }
 };

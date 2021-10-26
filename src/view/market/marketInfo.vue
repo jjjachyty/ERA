@@ -12,31 +12,32 @@
       </div>
       <div class="info">
         <el-row>
-          <el-col :xs="24" :sm="6" :md="6" :lg="6" :xl="6">
+          <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
             <div class="marketImg">
               <span>100</span>
               <img src="../../assets/img/xunzhaung1.png" alt />
             </div>
           </el-col>
-          <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
+          <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
             <div class="count">
-              <div class="name">神秘紫晶勛章 (ID:002101)</div>
+              <div class="name">NFT name (ID:002101)</div>
               <div class="box">
                 <div class="item">
-                  <span>拍賣倒計時</span>
+                  <span>Auction countdown</span>
                   <p class="color">14 : 32 : 45</p>
-                  <!-- <P>已成交</P> -->
+                  <!-- <P>Deal done</P> -->
                 </div>
                 <div class="item">
-                  <span>起價（ERA)≈ 816美元</span>
+                  <span>Transaction price（ERA)≈ $ 812</span>
                   <p>238,647,324</p>
                 </div>
               </div>
-              <div class="link">链接钱包</div>
-              <!-- <div class="bug" @click="submitBuy">立即出價（價格上漲10%）</div> -->
-              <!-- <div class="staus">NFT 已領取</div> -->
+              <div class="link">NFT has been claimed</div>
+              <!-- <div class="bug" @click="submitBuy">Bid now (price increase 10%)</div>
+              <div class="bug" >NFT Not collected</div>
+              <div class="staus">Connect wallet</div>-->
 
-              <div class="tips">上次出价的返佣 21,780,000 ERA</div>
+              <div class="tips">Rebate from last bid 21,780,000 ERA</div>
 
               <div class="btn">
                 <img src="../../assets/img/lsdata.png" alt />
@@ -45,48 +46,52 @@
               <div class="dataInfo">
                 <div class="infoBox">
                   <p class="money">
-                    <span>擁有者</span>
+                    <span>Owner</span>
                     <span class="line">未定義的</span>
                   </p>
                   <p class="money">
-                    <span>合約地址</span>
+                    <span>Contract address</span>
                     <span class="line">0x534…3cd45</span>
                   </p>
                   <p class="money">
-                    <span>令牌ID</span>
+                    <span>Token ID</span>
                     <span>11</span>
                   </p>
                 </div>
                 <div class="infoBox">
                   <p class="money">
-                    <span>資產協議</span>
+                    <span>Asset Protocol</span>
                     <span>ERC721</span>
                   </p>
                   <p class="money">
-                    <span>資產公鏈</span>
+                    <span>Asset public chain</span>
                     <span>BSC</span>
                   </p>
                 </div>
               </div>
             </div>
           </el-col>
-          <el-col :xs="24" :sm="10" :md="10" :lg="10" :xl="10">
+        </el-row>
+      </div>
+      <div class="info">
+        <el-row>
+          <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
             <div class="table">
               <div class="tbHeader">
-                <span>拍賣歷史</span>
+                <span>Bid history</span>
                 <span>
-                  我的總返佣：
+                  My total rebate:
                   <i>0 ERA</i>
                 </span>
               </div>
               <div class="dataTB">
                 <div class="tbHeaderTB">
-                  <span class="wid1">錢包地址</span>
-                  <span class="wid2">哈希</span>
-                  <span class="wid3">起拍價格(ERA)</span>
-                  <span class="wid4">拍賣時間</span>
-                  <span class="wid5">返利 (?)</span>
-                  <span class="wid6">狀態</span>
+                  <span class="wid1">Wallet address</span>
+                  <span class="wid2">Hash</span>
+                  <span class="wid3">Auction Price (AVS)</span>
+                  <span class="wid4">Auction time</span>
+                  <span class="wid5">Rebate (?)</span>
+                  <span class="wid6">state</span>
                 </div>
                 <div class="tbody">
                   <div>
@@ -215,7 +220,8 @@ img {
     }
     .info {
       padding: 30px 0;
-
+      width: 78%;
+      margin: 0 auto;
       .marketImg {
         background: #26352c;
         border-radius: 16px;
@@ -270,7 +276,7 @@ img {
           text-align: center;
         }
         .staus {
-          background: url(../../assets/img/maketStatusbj.png) no-repeat center;
+          background: url(../../assets/img/markeyStatus.png) no-repeat center;
           background-size: contain;
           line-height: 43px;
           height: 43px;
@@ -358,7 +364,7 @@ img {
             }
           }
           .wid3 {
-            width: 90px;
+            width: 140px;
           }
         }
       }
@@ -366,9 +372,15 @@ img {
     .rule {
       background: #26352c;
       border-radius: 16px;
-      padding: 10px 30px 30px;
+      padding: 10px 0 30px;
+      width: 78%;
+      margin: 0 auto;
       h6 {
         margin: 20px 0;
+        padding: 0 30px;
+      }
+      ul {
+        padding: 0 30px;
       }
       li {
         line-height: 24px;
@@ -395,7 +407,7 @@ img {
   width: 71px;
 }
 .wid3 {
-  width: 110px;
+  width: 147px;
 }
 .wid4 {
   width: 82px;

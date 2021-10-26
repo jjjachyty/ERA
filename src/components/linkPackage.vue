@@ -32,7 +32,8 @@ export default {
     return {
       centerDialogVisible: this.show,
       dialogWidth: 0,
-      active: 1
+      active: 1,
+      screenWidth: this.GLOBAL.clientWidth,
     };
   },
   watch: {
